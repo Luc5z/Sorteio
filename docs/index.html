@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio Bike Elétrica</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(45deg, #ff9000, #ff2339);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-family: Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        .sorteio-container {
+            font-size: 4em;
+            font-weight: bold;
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            min-width: 150px;
+        }
+        .botao-sortear {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.5em;
+            cursor: pointer;
+            border: none;
+            background: white;
+            color: red;
+            border-radius: 10px;
+            transition: 0.3s;
+            font-family: Helvetica, sans-serif;
+            font-weight: normal;
+        }
+        .botao-sortear:hover {
+            background: yellow;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sorteio Bike Elétrica</h1>
+    <div class="sorteio-container" id="numeroSorteado">0000</div>
+    <button class="botao-sortear" onclick="sortearNumero()">Sortear</button>
+
+    <script>
+        function sortearNumero() {
+            let container = document.getElementById("numeroSorteado");
+            let intervalo = setInterval(() => {
+                container.textContent = Math.floor(Math.random() * (2900 - 1 + 1) + 1).toString().padStart(4, '0');
+            }, 100);
+
+            setTimeout(() => {
+                clearInterval(intervalo);
+                let numeroFinal = Math.floor(Math.random() * (3200 - 1 + 1) + 1).toString().padStart(4, '0');
+                container.textContent = numeroFinal;
+                soltarConfete();
+            }, 5000);
+        }
+
+        function soltarConfete() {
+            var duracao = 2 * 1000;
+            var fim = Date.now() + duracao;
+
+            (function confete() {
+                var tempoRestante = fim - Date.now();
+                if (tempoRestante <= 0) return;
+
+                confetti({
+                    particleCount: 25,
+                    spread: 180,
+                    origin: { y: 0.6 }
+                });
+
+                requestAnimationFrame(confete);
+            })();
+        }
+    </script>
+</body>
+</html>
