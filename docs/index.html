@@ -69,7 +69,7 @@
                 let numeroFinal = Math.floor(Math.random() * (3200 - 1 + 1) + 1).toString().padStart(4, '0');
                 container.textContent = numeroFinal;
                 soltarConfete();
-            }, 5000);
+            }, 4000);
         }
 
         function soltarConfete() {
@@ -81,7 +81,7 @@
                 if (tempoRestante <= 0) return;
 
                 confetti({
-                    particleCount: 25,
+                    particleCount: 20,
                     spread: 180,
                     origin: { y: 0.6 }
                 });
