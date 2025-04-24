@@ -23,11 +23,8 @@ Este é um projeto simples de sorteio, desenvolvido com HTML, CSS e JavaScript. 
    ```bash
    git clone https://github.com/Luc5z/Sorteio.git
    ```
-2. Acesse a pasta do projeto:
-   ```bash
-   cd Sorteio
-   ```
-3. Abra o arquivo `index.html` no navegador.
+
+2. Abra o arquivo `index.html` no navegador.
 
 ## 📜 Licença
 
